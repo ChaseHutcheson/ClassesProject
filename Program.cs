@@ -13,9 +13,10 @@ namespace User
         static void Main(string[] args)
         {
             Restaurant restaurant = new Restaurant();
-            restaurant.AddEmployee("Chase", "Hutcheson", "IT Services", 1000000);
+            Employee ChaseH = new Employee("Chase", "Hutcheson", "IT Services", 100000);
+            restaurant.AddEmployee(ChaseH);
             restaurant.DisplayAllEmployees();
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }

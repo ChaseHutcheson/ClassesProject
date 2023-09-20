@@ -10,30 +10,14 @@ namespace ClassesProject
     {
         List<Employee> employees = new List<Employee>();
 
-        public void AddEmployee(string firstName, string lastName, string role, int salary)
-        {
-            // Generate a unique ID for the new employee
-            Guid randomId;
-            do
-            {
-                randomId = Guid.NewGuid();
-            } while (employees.Any(employee => employee.ID == randomId));
-
-            // Create a new employee and add them to the list
-            Employee newEmployee = new Employee
-            {
-                ID = randomId,
-                FirstName = firstName,
-                LastName = lastName,
-                Role = role,
-                Salary = salary
-            };
-            employees.Add(newEmployee);
+        public void AddEmployee(Employee employee)
+        {   
+            employees.Add(employee);
         }
 
         public void RemoveEmployee(Guid id)
         {
-            Employee employeeToRemove = employees.FirstOrDefault(employee => employee.id == id);
+            Employee employeeToRemove = employees.FirstOrDefault(employee => employee.ID == id);
 
             if (employeeToRemove != null)
             {
@@ -49,7 +33,7 @@ namespace ClassesProject
         public void GetEmployee(Guid id)
         {
             Employee employeeDetails = employees.FirstOrDefault(employee => employee.ID == id);
-            Console.WriteLine($"Id {employeeDetails.ID}, Name: {employeeDetails.FullName(employeeDetails)}, Role: {employeeDetails.Role}, Salary: {employeeDetails.salary}, Date of Hire: {employeeDetails.dateOfHire}");
+            Console.WriteLine($"Id {employeeDetails.ID}, Name: {employeeDetails.FullName(employeeDetails)}, Role: {employeeDetails.Role}, Salary: {employeeDetails.Salary}, Date of Hire: {employeeDetails.DateOfHire}");
         }
 
         public void DisplayAllEmployees()
@@ -57,7 +41,7 @@ namespace ClassesProject
             Console.WriteLine($"Employees:");
             foreach (Employee employee in employees)
             {
-                Console.WriteLine($"Id {employee.id}, Name: {employee.FullName(employee)}, Role: {employee.role}, Salary: {employee.salary}, Date of Hire: {employee.dateOfHire}");
+                Console.WriteLine($"Id: {employee.ID}, Name: {employee.FullName(employee)}, Role: {employee.Role}, Salary: {employee.Salary}, Date of Hire: {employee.DateOfHire}");
             }
         }
     }

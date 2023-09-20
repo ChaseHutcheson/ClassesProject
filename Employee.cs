@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassesProject
 {
-    internal class Employee
+    public class Employee
     {
         // Fields
         private Guid id;
@@ -20,7 +20,7 @@ namespace ClassesProject
         public Guid ID
         {
             get { return id; }
-            set { id = Guid.NewGuid(); }
+            set { id = value; }
         }
 
         public string FirstName
@@ -50,15 +50,19 @@ namespace ClassesProject
         public string DateOfHire
         {
             get { return dateOfHire; }
-            set { dateOfHire = DateTime.Now.ToString("dd/MM/yyyy"); }
+            set { dateOfHire = value; }
         }
 
+        // Constructor
         public Employee(string initialFirstName, string initialLastName, string initialRole, int initialSalary)
         {
-            string firstName = initialFirstName;
-            string lastName = initialLastName;
-            string role = initialRole;
-            int salary = initialSalary;
+            id = Guid.NewGuid();
+            firstName = initialFirstName;
+            lastName = initialLastName;
+            role = initialRole;
+            salary = initialSalary;
+            dateOfHire = DateTime.Now.ToString("dd/MM/yyyy");
+
         }
 
         public void Promote(Employee employee, int salary_increase)
@@ -75,7 +79,7 @@ namespace ClassesProject
 
         public string FullName(Employee employee)
         {
-            string employeeFullName = employee.id + " " + employee.lastName;
+            string employeeFullName = employee.firstName + " " + employee.lastName;
             return employeeFullName;
         }
     }
