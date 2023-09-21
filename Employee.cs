@@ -61,20 +61,18 @@ namespace ClassesProject
             lastName = initialLastName;
             role = initialRole;
             salary = initialSalary;
-            dateOfHire = DateTime.Now.ToString("dd/MM/yyyy");
+            dateOfHire = DateTime.Now.ToString("MM/dd/yyyy");
 
         }
 
-        public void Promote(Employee employee, int salary_increase)
+        public void Promote(int salary_increase)
         {
-            employee.salary = employee.salary + salary_increase;
-            Console.WriteLine($"Promoting {employee.firstName}...");
+            salary += salary_increase;
         }
 
-        public void Demote(Employee employee, int salary_decrease)
+        public void Demote(int salary_decrease)
         {
-            employee.salary = employee.salary - salary_decrease;
-            Console.WriteLine($"Demoting {employee.firstName}...");
+            salary -= salary_decrease;
         }
 
         public string FullName(Employee employee)

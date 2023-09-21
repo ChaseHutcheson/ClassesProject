@@ -21,7 +21,6 @@ namespace ClassesProject
 
             if (employeeToRemove != null)
             {
-                Console.WriteLine("Removing Employee...");
                 employees.Remove(employeeToRemove);
             }
             else
@@ -33,12 +32,11 @@ namespace ClassesProject
         public void GetEmployee(Guid id)
         {
             Employee employeeDetails = employees.FirstOrDefault(employee => employee.ID == id);
-            Console.WriteLine($"Id {employeeDetails.ID}, Name: {employeeDetails.FullName(employeeDetails)}, Role: {employeeDetails.Role}, Salary: {employeeDetails.Salary}, Date of Hire: {employeeDetails.DateOfHire}");
+            Console.WriteLine($"Id: {employeeDetails.ID}, Name: {employeeDetails.FullName(employeeDetails)}, Role: {employeeDetails.Role}, Salary: ${employeeDetails.Salary}, Date of Hire: {employeeDetails.DateOfHire}");
         }
 
         public void DisplayAllEmployees()
         {
-            Console.WriteLine($"Employees:");
             foreach (Employee employee in employees)
             {
                 Console.WriteLine($"Id: {employee.ID}, Name: {employee.FullName(employee)}, Role: {employee.Role}, Salary: {employee.Salary}, Date of Hire: {employee.DateOfHire}");

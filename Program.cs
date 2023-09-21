@@ -13,8 +13,20 @@ namespace User
         static void Main(string[] args)
         {
             Restaurant restaurant = new Restaurant();
-            Employee ChaseH = new Employee("Chase", "Hutcheson", "IT Services", 100000);
-            restaurant.AddEmployee(ChaseH);
+            Employee JohnDoe = new Employee("John", "Doe", "Chef", 50000);
+            Employee JaneDoe = new Employee("Jane", "Doe", "Waiter", 3000);
+            restaurant.AddEmployee(JohnDoe);
+            restaurant.AddEmployee(JaneDoe);
+            Console.WriteLine($"Employees:");
+            restaurant.DisplayAllEmployees();
+            Console.WriteLine($"\nPromoting Jane...");
+            JaneDoe.Promote(3000);
+            restaurant.DisplayAllEmployees();
+            Console.WriteLine($"\nPromoting Jane again...");
+            JaneDoe.Promote(3000);
+            restaurant.DisplayAllEmployees();
+            Console.WriteLine("\nRemoving John...");
+            restaurant.RemoveEmployee(JohnDoe.ID);
             restaurant.DisplayAllEmployees();
             Console.ReadKey();
         }
